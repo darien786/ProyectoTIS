@@ -26,12 +26,12 @@ public class EquipoController {
         return this.equipoServices.saveEquipo(equipo);
     }
 
-    @GetMapping(path = "/{dispositivo}")
+    @GetMapping(path = "/{id}")
     public Optional<EquipoModel> getEquipoById(@PathVariable Long id){
         return this.equipoServices.getById(id);
     }
 
-    @PutMapping(path = "/{dispositivo}")
+    @PutMapping(path = "/{id}")
     public EquipoModel updateEquipoById(@RequestBody EquipoModel request,@PathVariable Long id){
         return this.equipoServices.updateById(request, id);
     }
