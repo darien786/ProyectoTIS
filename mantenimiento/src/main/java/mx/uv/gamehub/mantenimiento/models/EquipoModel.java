@@ -1,5 +1,6 @@
 package mx.uv.gamehub.mantenimiento.models;
 
+import javax.annotation.processing.Generated;
 import javax.persistence.*;
 
 
@@ -7,6 +8,7 @@ import javax.persistence.*;
 @Table(name="equipo")
 public class EquipoModel {
     @Id
+    @GeneratedValue (strategy= GenerationType.IDENTITY)
     private Long dispositivo;
     @Column
     private String nombre;
@@ -17,6 +19,7 @@ public class EquipoModel {
     @Column
     private String condicion;
     @Column
+    
     private String categoria_nombre;
 
     public Long getDispositivo() {
@@ -24,7 +27,7 @@ public class EquipoModel {
     }
 
     public void setDispositivo(Long dispositivo) {
-        dispositivo = dispositivo;
+        this.dispositivo = dispositivo;
     }
 
     public String getNombre() {
@@ -32,7 +35,7 @@ public class EquipoModel {
     }
 
     public void setNombre(String nombre) {
-        nombre = nombre;
+        this.nombre = nombre;
     }
 
     public String getMarca() {
@@ -40,7 +43,7 @@ public class EquipoModel {
     }
 
     public void setMarca(String marca) {
-        marca = marca;
+        this.marca = marca;
     }
 
     public String getEstado() {
@@ -48,7 +51,7 @@ public class EquipoModel {
     }
 
     public void setEstado(String estado) {
-        estado = estado;
+        this.estado = estado;
     }
 
     public String getCondicion() {
@@ -56,7 +59,7 @@ public class EquipoModel {
     }
 
     public void setCondicion(String condicion) {
-        condicion = condicion;
+        this.condicion = condicion;
     }
 
     public String getCategoria() {
@@ -64,6 +67,6 @@ public class EquipoModel {
     }
 
     public void setCategoria(String categoria_nombre) {
-        categoria_nombre = categoria_nombre;
+        this.categoria_nombre = categoria_nombre;
     }
 }
