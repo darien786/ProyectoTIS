@@ -32,7 +32,7 @@ public class EquipoController {
     }
 
     @PutMapping(path = "/{dispositivo}")
-    public EquipoModel updateEquipoById(@RequestBody EquipoModel request,@PathVariable long id){
+    public EquipoModel updateEquipoById(@RequestBody EquipoModel request,@PathVariable Long id){
         return this.equipoServices.updateById(request, id);
     }
 }
