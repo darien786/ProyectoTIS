@@ -1,0 +1,51 @@
+version: '3.3'
+services:    
+  Administrador:
+    image: amazoncorretto:20.0.1
+    volumes:
+    - ./app:/app
+    ports:
+    - 8081:8090
+    environment:
+     MYSQL_HOST: mysql
+    command:
+    - java
+    - -jar
+    - /app/GameHub-0.0.1-SNAPSHOT.jar
+    depends_on:
+    - mysql
+    links:
+    - mysql
+    restart: always
+
+  Mantenimiento:
+    image: amazoncorretto:20.0.1
+    volumes:
+    - ./app:/app
+    ports:
+    - 8082:8090
+    environment:
+     MYSQL_HOST: mysql
+    command:
+    - java
+    - -jar
+    - /app/mantenimiento-0.0.1-SNAPSHOT.jar
+    depends_on:
+    - mysql
+    links:
+    - mysql
+    restart: always
+
+  mysql:
+    image: mysql
+    ports:
+      - "3306:3306"
+    expose:
+      - "3306"
+    environment:
+      - MYSQL_USER=Administrador
+      - MYSQL_PASSWORD=1234
+      - MYSQL_DATABASE=GameHub
+      - MYSQL_ROOT_PASSWORD=1234
+    volumes:
+      - "./conf.d:/etc/mysql/conf.d:ro"
