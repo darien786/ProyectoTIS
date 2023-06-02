@@ -1,0 +1,48 @@
+
+type Mutation{
+    #Crea un nuevo equipo
+    crearEquipo(equipoRequest:EquipoRequest):Equipo,
+    
+    #Modifica un equipo ya creado
+    actualizarEquipo(id:Float,equipoRequest:EquipoRequest):Equipo,
+    
+    #Elimina un equipo existente por su ID
+    eliminarEquipo(id:Float) : String
+}
+
+type Query{
+    #Devuelve todos los equipos
+    listarEquipos : [Equipo],
+
+    #Busca un equipo por su identificador
+    buscarEquipoPorId(id : Float) : Equipo,
+
+    #Obtiene una lista de categorías
+    listarCategorias : [Categoria]
+
+    #Busca una categoría por su identificador
+    buscarCategoriaPorId(id : String) : Categoria    
+}
+
+type Equipo{
+    dispositivo: Float, #El identificador del equipo
+    nombre: String,     #El nombre del equipo
+    marca: String,      #La marca del equipo
+    estado: String,     #El estado del equipo
+    condicion: String,  #La condición del equipo
+    categoria: Categoria    #La categoria del equipo
+}
+
+type Categoria{
+    nombre: String,     #El nombre de la categoria
+    equipos: [Equipo]   #Los equipos de la categoria 
+}
+
+input EquipoRequest {
+    dispositivo: Float, #El identificador del equipo
+    nombre: String,     #El nombre del equipo
+    marca: String,      #La marca del equipo
+    estado: String,     #El estado del equipo
+    condicion: String,  #La condición del equipo
+    categoriaId: String #El identificador de la categoría
+}
