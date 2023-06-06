@@ -35,23 +35,6 @@ services:
     links:
     - mysql
     restart: always
-    Administrador:
-    image: rrojano/jdk8
-    volumes:
-    - ./app:/app
-    ports:
-    - 8081:8090
-    environment:
-     MYSQL_HOST: mysql
-    command:
-    - java
-    - -jar
-    - /app/Recepcion-0.0.1-SNAPSHOT.jar
-    depends_on:
-    - mysql
-    links:
-    - mysql
-    restart: always
     
   Recepcion:
     image: rrojano/jdk8
