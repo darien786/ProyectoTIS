@@ -35,7 +35,6 @@ CommandLineRunner commandLineRunner(CategoriaRepository categoriaRepository, Equ
             for (int i = 0; i < 5; i++) {
                 if (categoria.getNombre().equals("Computadora")) {
                     Equipo equipo = Equipo.builder()
-                            .dispositivo((long) i)
                             .nombre("NovaGamer")
                             .marca("Dell G Series")
                             .estado("Disponible")
@@ -45,7 +44,6 @@ CommandLineRunner commandLineRunner(CategoriaRepository categoriaRepository, Equ
                     equipoRepository.save(equipo);
                 } else if (categoria.getNombre().equals("Consola")) {
                     Equipo equipo = Equipo.builder()
-                            .dispositivo((long)i+5)
                             .nombre("Series S")
                             .marca("Xbox")
                             .estado("Disponible")

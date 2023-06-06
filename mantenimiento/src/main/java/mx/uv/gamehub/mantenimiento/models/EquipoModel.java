@@ -1,6 +1,5 @@
 package mx.uv.gamehub.mantenimiento.models;
 
-import javax.annotation.processing.Generated;
 import javax.persistence.*;
 
 
@@ -10,16 +9,20 @@ public class EquipoModel {
     @Id
     @GeneratedValue (strategy= GenerationType.IDENTITY)
     private Long dispositivo;
+    
     @Column
     private String nombre;
+    
     @Column
     private String marca;
+    
     @Column
     private String estado;
+    
     @Column
     private String condicion;
-    @Column
     
+    @Column
     private String categoria_nombre;
 
     public Long getDispositivo() {
